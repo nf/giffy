@@ -60,7 +60,7 @@ func main() {
 	log.Println("Generating", out)
 	f, err := os.Create(out)
 	if err != nil {
-		log.Fatalf("could not create %v: %v", out, err)
+		log.Fatalf("error creating %v: %v", out, err)
 	}
 	err = gif.EncodeAll(f, &gif.GIF{Image: ms, Delay: ds, LoopCount: -1})
 	if err != nil {
@@ -68,7 +68,7 @@ func main() {
 	}
 	err = f.Close()
 	if err != nil {
-		log.Fatal("error closing out.gif:", err)
+		log.Fatalf("error closing %v: %v", out, err)
 	}
 }
 
